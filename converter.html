@@ -1,0 +1,101 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>올인원 단위 변환기</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+    h1 {
+      text-align: center;
+    }
+    .converter {
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 15px;
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>올인원 단위 변환기</h1>
+
+  <!-- 길이 -->
+  <div class="converter">
+    <h2>📏 길이 변환</h2>
+    <label>센티미터 (cm): <input type="number" id="cm" oninput="inch.value = (this.value / 2.54).toFixed(2)" /></label>
+    <label>인치 (inch): <input type="number" id="inch" oninput="cm.value = (this.value * 2.54).toFixed(2)" /></label>
+    <label>미터 (m): <input type="number" id="meter" oninput="yard.value = (this.value * 1.09361).toFixed(2)" /></label>
+    <label>야드 (yard): <input type="number" id="yard" oninput="meter.value = (this.value / 1.09361).toFixed(2)" /></label>
+    <label>킬로미터 (km): <input type="number" id="km" oninput="mile.value = (this.value * 0.621371).toFixed(2)" /></label>
+    <label>마일 (mile): <input type="number" id="mile" oninput="km.value = (this.value / 0.621371).toFixed(2)" /></label>
+  </div>
+
+  <!-- 무게 -->
+  <div class="converter">
+    <h2>⚖️ 무게 변환</h2>
+    <label>킬로그램 (kg): <input type="number" id="kg" oninput="lb.value = (this.value * 2.20462).toFixed(2)" /></label>
+    <label>파운드 (lb): <input type="number" id="lb" oninput="kg.value = (this.value / 2.20462).toFixed(2)" /></label>
+    <label>그램 (g): <input type="number" id="g" oninput="oz.value = (this.value / 28.3495).toFixed(2)" /></label>
+    <label>온스 (oz): <input type="number" id="oz" oninput="g.value = (this.value * 28.3495).toFixed(2)" /></label>
+  </div>
+
+  <!-- 온도 -->
+  <div class="converter">
+    <h2>🌡️ 온도 변환</h2>
+    <label>섭씨 (°C): <input type="number" id="celsius" oninput="fahrenheit.value = ((this.value * 9/5) + 32).toFixed(2)" /></label>
+    <label>화씨 (°F): <input type="number" id="fahrenheit" oninput="celsius.value = ((this.value - 32) * 5/9).toFixed(2)" /></label>
+  </div>
+
+  <!-- 시간 -->
+  <div class="converter">
+    <h2>⏱️ 시간 변환</h2>
+    <label>분 (min): <input type="number" id="min" oninput="hour.value = (this.value / 60).toFixed(2)" /></label>
+    <label>시간 (hour): <input type="number" id="hour" oninput="min.value = (this.value * 60).toFixed(2)" /></label>
+    <label>일 (day): <input type="number" id="day" oninput="hour2.value = (this.value * 24).toFixed(2)" /></label>
+    <label>시간 (hour): <input type="number" id="hour2" oninput="day.value = (this.value / 24).toFixed(2)" /></label>
+  </div>
+
+  <!-- 면적 -->
+  <div class="converter">
+    <h2>📐 면적 변환</h2>
+    <label>제곱미터 (㎡): <input type="number" id="sqm" oninput="pyong.value = (this.value / 3.3058).toFixed(2)" /></label>
+    <label>평 (평): <input type="number" id="pyong" oninput="sqm.value = (this.value * 3.3058).toFixed(2)" /></label>
+    <label>제곱킬로미터 (㎢): <input type="number" id="sqkm" oninput="sqmi.value = (this.value * 0.386102).toFixed(2)" /></label>
+    <label>제곱마일 (mi²): <input type="number" id="sqmi" oninput="sqkm.value = (this.value / 0.386102).toFixed(2)" /></label>
+  </div>
+
+  <!-- 속도 -->
+  <div class="converter">
+    <h2>🚗 속도 변환</h2>
+    <label>킬로미터/시 (km/h): <input type="number" id="kmh" oninput="mph.value = (this.value * 0.621371).toFixed(2)" /></label>
+    <label>마일/시 (mph): <input type="number" id="mph" oninput="kmh.value = (this.value / 0.621371).toFixed(2)" /></label>
+    <label>미터/초 (m/s): <input type="number" id="ms" oninput="kmh2.value = (this.value * 3.6).toFixed(2)" /></label>
+    <label>킬로미터/시 (km/h): <input type="number" id="kmh2" oninput="ms.value = (this.value / 3.6).toFixed(2)" /></label>
+  </div>
+
+  <!-- 데이터 -->
+  <div class="converter">
+    <h2>💾 데이터 변환</h2>
+    <label>바이트 (B): <input type="number" id="byte" oninput="kb.value = (this.value / 1024).toFixed(2); mb.value = (this.value / 1048576).toFixed(2)" /></label>
+    <label>킬로바이트 (KB): <input type="number" id="kb" oninput="byte.value = (this.value * 1024).toFixed(2)" /></label>
+    <label>메가바이트 (MB): <input type="number" id="mb" oninput="byte.value = (this.value * 1048576).toFixed(2); gb.value = (this.value / 1024).toFixed(2)" /></label>
+    <label>기가바이트 (GB): <input type="number" id="gb" oninput="mb.value = (this.value * 1024).toFixed(2)" /></label>
+  </div>
+
+</body>
+</html>
